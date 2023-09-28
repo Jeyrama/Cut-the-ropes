@@ -21,3 +21,6 @@ step 4:          0 0 0 0 0
 
 Hence the result is [5, 4, 2, 1]
 */
+
+
+// Solution
