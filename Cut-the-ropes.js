@@ -24,3 +24,23 @@ Hence the result is [5, 4, 2, 1]
 
 
 // Solution
+
+function cutTheRopes(a) {
+  let sums = [a.length];
+  while (Math.max(...a) !== 0) {
+    let s = a.sort((a, b) => a - b).find(i => i !== 0);
+    a = a.map(rope => {
+      if ((rope - s) < 0) {
+        return 0;
+      }
+      return (rope - s);
+    })
+    let count = a.filter(rope => rope !== 0).length;
+    if (count !== 0) {
+      sums.push(count);
+    }
+  }
+  return sums;
+}
+
+// or
