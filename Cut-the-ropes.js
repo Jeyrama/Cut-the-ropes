@@ -44,3 +44,24 @@ function cutTheRopes(a) {
 }
 
 // or
+
+function cutTheRopes(a) {
+  let leftover = [a.length]; // Initialize with the total number of ropes
+  
+  while (a.length > 0) {
+    const smallest = Math.min(...a);
+
+    // Subtract the length of the smallest rope from all ropes
+    a = a.map((rope) => rope - smallest);
+
+    // Remove any ropes with a length of zero or less
+    a = a.filter((rope) => rope > 0);
+
+    // Count and push the remaining ropes
+    if (a.length > 0) {
+      leftover.push(a.length);
+    }
+  }
+
+  return leftover;
+}
